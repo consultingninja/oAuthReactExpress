@@ -1,0 +1,67 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="referrer", content="no-referrer-when-downgrade")
+    script(src="https://accounts.google.com/gsi/client", async, defer)
+    script.
+      async function decodeResponse(credential){
+
+      }
+      async function handleAuth(response){
+      //const responsePayload = await decodeJwtResponse(response.credential);
+      console.log('Response',response);
+
+      console.log("ID: " + responsePayload.sub);
+      console.log('Full Name: ' + responsePayload.name);
+      console.log('Given Name: ' + responsePayload.given_name);
+      console.log('Family Name: ' + responsePayload.family_name);
+      console.log("Image URL: " + responsePayload.picture);
+      console.log("Email: " + responsePayload.email);
+      }
+
+    
+    title Consulting Ninja HTMLAUTH
+    // Additional CSS and JavaScript files can be linked here
+  body
+    // Content of the web page goes here
+
+    header
+      // Header content
+
+    nav
+      // Navigation menu or links
+
+    main
+      h1 Welcome to Consulting Ninja!
+      p
+        | Visit
+        a(href="https://kit.svelte.dev")
+          strong @ConsultingNinja
+        |  to see more great videos!
+        #g_id_onload(
+          data-client_id="889328097452-3t6k8ev6krfi79s6gml4vqhovpq04m2h.apps.googleusercontent.com"
+          data-context="signin"
+          data-ux_mode="popup"
+          data-callback="handleAuth"
+          data-auto_prompt="false"
+        )
+
+        .g_id_signin(
+          data-type="standard"
+          data-shape="rectangular"
+          data-theme="outline"
+          data-text="signin_with"
+          data-size="large"
+          data-logo_alignment="left"
+        )
+
+
+
+      // Main content of the page
+
+    footer
+      // Footer content
+
+    // Additional scripts can be placed here
